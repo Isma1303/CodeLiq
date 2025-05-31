@@ -114,6 +114,7 @@ const SaaSSolutionsPage = () => {
       >
         <h1
           style={{
+            paddingTop: "4.1rem",
             color: darkTheme.primaryText,
             textAlign: "center",
             marginBottom: "3rem",

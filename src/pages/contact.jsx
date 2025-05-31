@@ -9,6 +9,7 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
+  const [charCount, setCharCount] = useState(255);
 
   const [submitStatus, setSubmitStatus] = useState({
     loading: false,
@@ -24,7 +25,6 @@ const ContactForm = () => {
     setSubmitStatus({ loading: true, error: null, success: false });
 
     try {
-      // Usar window.location.hostname para obtener la IP o hostname del servidor
       const apiUrl = `http://${window.location.hostname}:3000/api/contact`;
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -54,6 +54,9 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "message") {
+      setCharCount(255 - value.length);
+    }
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
@@ -99,11 +102,11 @@ const ContactForm = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
-        paddingTop: "6rem",
+        paddingTop: "12rem",
         padding: "2rem",
         "@media (maxWidth: 768px)": {
           padding: "1rem",
-          paddingTop: "4rem",
+          paddingTop: "10rem",
         },
       }}
     >
@@ -112,64 +115,81 @@ const ContactForm = () => {
         style={{
           maxWidth: "500px",
           width: "100%",
-          padding: "2rem",
+          padding: "3rem",
           backgroundColor: darkTheme.card,
           borderRadius: "8px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
           transition: "all 0.3s ease",
           "@media (maxWidth: 768px)": {
-            padding: "1.5rem",
+            padding: "2rem",
             margin: "0 1rem",
           },
         }}
       >
         <h2
           style={{
-            marginBottom: "1.5rem",
+            marginBottom: "2.5rem",
             color: darkTheme.primaryText,
             fontSize: "2rem",
+            textAlign: "center",
             "@media (maxWidth: 768px)": {
               fontSize: "1.5rem",
-              marginBottom: "1rem",
+              marginBottom: "2rem",
             },
           }}
         >
           Contáctanos
         </h2>
-        <input
-          type="text"
-          name="name"
-          placeholder="Nombre completo"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Correo electrónico"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <textarea
-          name="message"
-          placeholder="Tu mensaje"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          maxLength={255}
-          style={{
-            ...inputStyle,
-            minHeight: "150px",
-            resize: "vertical",
-            "@media (maxWidth: 768px)": {
-              minHeight: "120px",
-            },
-          }}
-        />
+        <div style={{ marginBottom: "2rem" }}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre completo"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Correo electrónico"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <div style={{ position: "relative" }}>
+            <textarea
+              name="message"
+              placeholder="Tu mensaje"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              maxLength={255}
+              style={{
+                ...inputStyle,
+                minHeight: "150px",
+                resize: "vertical",
+                marginBottom: "0.5rem",
+                "@media (maxWidth: 768px)": {
+                  minHeight: "120px",
+                },
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "1rem",
+                right: "1rem",
+                color: darkTheme.secondaryText,
+                fontSize: "0.9rem",
+              }}
+            >
+              {charCount}/255
+            </div>
+          </div>
+        </div>
         <Button
           type="submit"
           variant="contained"

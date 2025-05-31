@@ -20,6 +20,7 @@ const About = () => {
         }
       }}>
         <h1 style={{
+          paddingTop: "4.2rem",
           fontSize: "2.5rem",
           marginBottom: "2rem",
           textAlign: "center",
