@@ -6,6 +6,7 @@ import ServicesPage from "./pages/services";
 import ContactForm from "./pages/contact";
 import About from "./pages/about";
 import SaaSSolutions from "./pages/saas-solutions";
+import PricePage from "./pages/price";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactForm />} />
           <Route path="/saas-solutions" element={<SaaSSolutions />} />
+          <Route path="/price" element={<PricePage />} />
         </Routes>
       </main>
       <Footer />

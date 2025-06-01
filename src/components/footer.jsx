@@ -22,14 +22,13 @@ const Footer = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
-            justifyContent: "center",
             alignItems: "center",
+            gap: "1.5rem",
             maxWidth: "1200px",
             margin: "0 auto",
             padding: "0 1rem",
             color: darkTheme.primaryText,
-            "@media (min-width: 768px)": {
+            "@media screen and (minWidth: 768px)": {
               flexDirection: "row",
               justifyContent: "space-between",
               gap: "0",
@@ -41,7 +40,7 @@ const Footer = () => {
               margin: 0,
               textAlign: "center",
               fontSize: "0.9rem",
-              "@media (min-width: 768px)": {
+              "@media screen and (minWidth: 768px)": {
                 textAlign: "left",
                 fontSize: "1rem",
               },
@@ -59,7 +58,7 @@ const Footer = () => {
               gap: "15px",
               margin: 0,
               padding: 0,
-              "@media (max-width: 480px)": {
+              "@media screen and (maxWidth: 480px)": {
                 gap: "10px",
                 fontSize: "0.9rem",
               },
@@ -105,7 +104,12 @@ const Footer = () => {
                     transition: "all 0.3s ease",
                     padding: "5px",
                     fontSize: "0.9rem",
-                    "@media (min-width: 768px)": {
+                    "@media screen and (maxWidth: 360px)": {
+                      "& span": {
+                        display: "none",
+                      },
+                    },
+                    "@media screen and (minWidth: 768px)": {
                       fontSize: "1rem",
                     },
                   }}
@@ -124,20 +128,12 @@ const Footer = () => {
                       color: "#FFFFFF",
                       transition: "color 0.3s ease",
                       fontSize: "1.2rem",
-                      "@media (max-width: 480px)": {
+                      "@media screen and (maxWidth: 480px)": {
                         fontSize: "1rem",
                       },
                     }}
                   />
-                  <span
-                    style={{
-                      "@media (max-width: 360px)": {
-                        display: "none",
-                      },
-                    }}
-                  >
-                    {name}
-                  </span>
+                  <span>{name}</span>
                 </a>
               </li>
             ))}

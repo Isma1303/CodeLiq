@@ -6,6 +6,10 @@ import SendIcon from "@mui/icons-material/Send";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
+    lastName: "",
+    phone: "",
+    company: "",
+    position: "",
     email: "",
     message: "",
   });
@@ -38,7 +42,15 @@ const ContactForm = () => {
         throw new Error(data.error || "Error al enviar el mensaje");
       }
       setSubmitStatus({ loading: false, error: null, success: true });
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        lastName: "",
+        phone: "",
+        company: "",
+        position: "",
+        email: "",
+        message: "",
+      });
       setModalMessage("¡Mensaje enviado con éxito!");
       setOpenModal(true);
     } catch (error) {
@@ -72,7 +84,7 @@ const ContactForm = () => {
     borderRadius: "4px",
     color: darkTheme.primaryText,
     fontSize: "1rem",
-    "@media (maxWidth: 768px)": {
+    "@media screen and (maxWidth: 768px)": {
       padding: "0.6rem",
       fontSize: "0.95rem",
     },
@@ -88,7 +100,7 @@ const ContactForm = () => {
     cursor: "pointer",
     fontSize: "1rem",
     transition: "all 0.3s ease",
-    "@media (maxWidth: 768px)": {
+    "@media screen and (maxWidth: 768px)": {
       padding: "0.8rem 1.5rem",
       fontSize: "0.95rem",
     },
@@ -102,27 +114,23 @@ const ContactForm = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
-        paddingTop: "12rem",
-        padding: "2rem",
-        "@media (maxWidth: 768px)": {
-          padding: "1rem",
-          paddingTop: "10rem",
+        padding: "6rem 2rem 2rem 2rem",
+        "@media screen and (maxWidth: 768px)": {
+          padding: "5rem 1rem 1rem 1rem",
         },
       }}
     >
       <form
         onSubmit={handleSubmit}
         style={{
-          maxWidth: "500px",
+          maxWidth: "600px",
           width: "100%",
           padding: "3rem",
           backgroundColor: darkTheme.card,
           borderRadius: "8px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          transition: "all 0.3s ease",
-          "@media (maxWidth: 768px)": {
+          "@media screen and (maxWidth: 768px)": {
             padding: "2rem",
-            margin: "0 1rem",
           },
         }}
       >
@@ -132,7 +140,7 @@ const ContactForm = () => {
             color: darkTheme.primaryText,
             fontSize: "2rem",
             textAlign: "center",
-            "@media (maxWidth: 768px)": {
+            "@media screen and (maxWidth: 768px)": {
               fontSize: "1.5rem",
               marginBottom: "2rem",
             },
@@ -140,25 +148,68 @@ const ContactForm = () => {
         >
           Contáctanos
         </h2>
+
         <div style={{ marginBottom: "2rem" }}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre completo"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo electrónico"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Apellido"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+          </div>
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Teléfono"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo electrónico"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+          </div>
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+            <input
+              type="text"
+              name="company"
+              placeholder="Empresa"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+            <input
+              type="text"
+              name="position"
+              placeholder="Cargo"
+              value={formData.position}
+              onChange={handleChange}
+              required
+              style={{ ...inputStyle, flex: 1 }}
+            />
+          </div>
           <div style={{ position: "relative" }}>
             <textarea
               name="message"
@@ -172,7 +223,7 @@ const ContactForm = () => {
                 minHeight: "150px",
                 resize: "vertical",
                 marginBottom: "0.5rem",
-                "@media (maxWidth: 768px)": {
+                "@media screen and (maxWidth: 768px)": {
                   minHeight: "120px",
                 },
               }}
@@ -190,6 +241,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+
         <Button
           type="submit"
           variant="contained"
@@ -208,7 +260,7 @@ const ContactForm = () => {
               transform: "translateY(-2px)",
             },
             transition: "all 0.3s ease",
-            "@media (maxWidth: 768px)": {
+            "@media screen and (maxWidth: 768px)": {
               padding: "0.8rem 1.5rem",
               fontSize: "0.95rem",
             },
@@ -217,6 +269,7 @@ const ContactForm = () => {
           {submitStatus.loading ? "Enviando..." : "Enviar mensaje"}
         </Button>
       </form>
+
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
@@ -236,7 +289,7 @@ const ContactForm = () => {
             p: 4,
             minWidth: 300,
             textAlign: "center",
-            "@media (maxWidth: 768px)": {
+            "@media screen and (maxWidth: 768px)": {
               width: "90%",
               p: 3,
               minWidth: "auto",
@@ -248,7 +301,7 @@ const ContactForm = () => {
             variant="h6"
             component="h2"
             sx={{
-              "@media (maxWidth: 768px)": {
+              "@media screen and (maxWidth: 768px)": {
                 fontSize: "1.25rem",
               },
             }}
@@ -259,7 +312,7 @@ const ContactForm = () => {
             id="modal-description"
             sx={{
               mt: 2,
-              "@media (maxWidth: 768px)": {
+              "@media screen and (maxWidth: 768px)": {
                 fontSize: "0.95rem",
               },
             }}
@@ -275,7 +328,7 @@ const ContactForm = () => {
                 backgroundColor: darkTheme.accent,
                 opacity: 0.9,
               },
-              "@media (maxWidth: 768px)": {
+              "@media screen and (maxWidth: 768px)": {
                 mt: 1.5,
                 fontSize: "0.95rem",
               },

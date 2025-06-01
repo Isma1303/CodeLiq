@@ -5,16 +5,14 @@ import contactHandler from './src/api/contact.js';
 const app = express();
 const port = 3000;
 
-// Configuración de CORS más permisiva para desarrollo
 app.use(cors({
-    origin: true, // Permite cualquier origen en desarrollo
+    origin: true, 
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
 
-// Middleware para manejar errores
 app.use((err, req, res, next) => {
     console.error('Error en el servidor:', err);
     res.status(500).json({ 
@@ -31,12 +29,10 @@ app.post('/api/contact', async (req, res, next) => {
     }
 });
 
-// Iniciar el servidor
 const server = app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}`);
 });
 
-// Manejo de errores no capturados
 process.on('unhandledRejection', (err) => {
     console.error('Error no manejado:', err);
     server.close(() => {

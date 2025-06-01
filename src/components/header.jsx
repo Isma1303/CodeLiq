@@ -24,22 +24,47 @@ function Header() {
           <nav className={`nav-menu${isMenuOpen ? " open" : ""}`}>
             <ul className="nav-links">
               <li>
-                <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  to="/services"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Servicios
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  to="/about"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Sobre nosotros
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  to="/price"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Precios
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Contáctanos
                 </Link>
               </li>

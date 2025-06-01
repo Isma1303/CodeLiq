@@ -3,7 +3,6 @@ import dbConfig from './config.js';
 
 const connection = mysql.createPool(dbConfig);
 
-// Verificar la conexión
 connection.getConnection()
     .then(conn => {
         console.log('Base de datos conectada exitosamente');
