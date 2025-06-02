@@ -20,12 +20,4 @@ const dbConfig = {
     }
 };
 
-console.log('Variables de entorno cargadas:', {
-    envPath,
-    host: dbConfig.host,
-    port: dbConfig.port,
-    user: dbConfig.user,
-    database: dbConfig.database
-});
-
 export default dbConfig;

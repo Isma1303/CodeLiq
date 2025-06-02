@@ -19,7 +19,7 @@ app.use((err, req, res, next) => {
         error: 'Error interno del servidor',
         details: process.env.NODE_ENV === 'development' ? err.message : undefined
     });
-});
+});http://localhost:5173'
 
 app.post('/api/contact', async (req, res, next) => {
     try {

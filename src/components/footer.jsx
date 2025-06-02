@@ -1,9 +1,10 @@
 import React from "react";
-import { lightTheme, darkTheme } from "../Theme.jsx";
+import { darkTheme } from "../Theme.jsx";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import EmailIcon from "@mui/icons-material/Email";
 
 const Footer = () => {
   return (
@@ -16,54 +17,91 @@ const Footer = () => {
         marginTop: "auto",
       }}
     >
+      <style>
+        {`
+          .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+          }
+          @media (min-width: 768px) {
+            .footer-content {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: 0;
+            }
+            .footer-left {
+              text-align: left;
+              font-size: 1rem;
+            }
+            .footer-right {
+              justify-content: flex-end;
+            }
+          }
+          .footer-left {
+            margin: 0;
+            text-align: center;
+            font-size: 0.9rem;
+          }
+          .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+          }
+          @media (max-width: 480px) {
+            .social-links {
+              gap: 10px;
+              font-size: 0.9rem;
+            }
+          }
+          .social-link {
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px;
+            font-size: 0.9rem;
+          }
+          .social-link:hover, .social-link:focus {
+            text-decoration: underline;
+          }
+          @media (max-width: 360px) {
+            .social-link span {
+              display: none;
+            }
+          }
+          @media (min-width: 768px) {
+            .social-link {
+              font-size: 1rem;
+            }
+          }
+          .email-gradient-hover {
+            background: linear-gradient(90deg, #ffe600, #0099ff, #25d366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transition: background 0.3s ease;
+          }
+        `}
+      </style>
       <div className="container">
-        <div
-          className="footer-content"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "1.5rem",
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 1rem",
-            color: darkTheme.primaryText,
-            "@media screen and (minWidth: 768px)": {
-              flexDirection: "row",
-              justifyContent: "space-between",
-              gap: "0",
-            },
-          }}
-        >
-          <p
-            style={{
-              margin: 0,
-              textAlign: "center",
-              fontSize: "0.9rem",
-              "@media screen and (minWidth: 768px)": {
-                textAlign: "left",
-                fontSize: "1rem",
-              },
-            }}
-          >
+        <div className="footer-content">
+          <p className="footer-left">
             &copy; 2025 CodeLiq. Todos los derechos reservados.
           </p>
-          <ul
-            className="social-links"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              listStyleType: "none",
-              gap: "15px",
-              margin: 0,
-              padding: 0,
-              "@media screen and (maxWidth: 480px)": {
-                gap: "10px",
-                fontSize: "0.9rem",
-              },
-            }}
-          >
+          <ul className="social-links footer-right">
             {[
               {
                 Icon: FacebookIcon,
@@ -74,7 +112,7 @@ const Footer = () => {
               {
                 Icon: XIcon,
                 name: "Twitter",
-                color: "#FFFFFF",
+                color: "#000000",
                 url: "https://twitter.com",
               },
               {
@@ -87,7 +125,13 @@ const Footer = () => {
                 Icon: WhatsAppIcon,
                 name: "WhatsApp",
                 color: "#25D366",
-                url: "https://wa.me/tunumero",
+                url: "https://wa.me/46800417",
+              },
+              {
+                Icon: EmailIcon,
+                name: "Email",
+                color: "#FFFFFF",
+                url: "mailto:codeliqguaatemal@gmail.com",
               },
             ].map(({ Icon, name, color, url }) => (
               <li key={name}>
@@ -95,45 +139,56 @@ const Footer = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color: "#FFFFFF",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "5px",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    padding: "5px",
-                    fontSize: "0.9rem",
-                    "@media screen and (maxWidth: 360px)": {
-                      "& span": {
-                        display: "none",
-                      },
-                    },
-                    "@media screen and (minWidth: 768px)": {
-                      fontSize: "1rem",
-                    },
-                  }}
+                  className="social-link"
+                  style={{ color: "#FFFFFF" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = color;
-                    e.currentTarget.querySelector("svg").style.color = color;
+                    if (name === "Email") {
+                      const wrap = e.currentTarget.querySelector(".email-gradient-wrap");
+                      wrap.classList.add("email-gradient-hover");
+                      // Para el icono SVG, forzamos fill a transparent para que tome el gradiente
+                      const svg = wrap.querySelector("svg");
+                      svg.style.color = "inherit";
+                    } else {
+                      e.currentTarget.style.color = color;
+                      e.currentTarget.querySelector("svg").style.color = color;
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#FFFFFF";
-                    e.currentTarget.querySelector("svg").style.color =
-                      "#FFFFFF";
+                    if (name === "Email") {
+                      const wrap = e.currentTarget.querySelector(".email-gradient-wrap");
+                      wrap.classList.remove("email-gradient-hover");
+                      const svg = wrap.querySelector("svg");
+                      svg.style.color = "#FFFFFF";
+                    } else {
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.querySelector("svg").style.color =
+                        "#FFFFFF";
+                    }
                   }}
                 >
-                  <Icon
-                    style={{
-                      color: "#FFFFFF",
-                      transition: "color 0.3s ease",
-                      fontSize: "1.2rem",
-                      "@media screen and (maxWidth: 480px)": {
-                        fontSize: "1rem",
-                      },
-                    }}
-                  />
-                  <span>{name}</span>
+                  {name === "Email" ? (
+                    <span className="email-gradient-wrap" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                      <Icon
+                        style={{
+                          color: "#FFFFFF",
+                          transition: "color 0.3s ease",
+                          fontSize: "1.2rem",
+                        }}
+                      />
+                      <span>{name}</span>
+                    </span>
+                  ) : (
+                    <>
+                      <Icon
+                        style={{
+                          color: "#FFFFFF",
+                          transition: "color 0.3s ease",
+                          fontSize: "1.2rem",
+                        }}
+                      />
+                      <span>{name}</span>
+                    </>
+                  )}
                 </a>
               </li>
             ))}

@@ -24,7 +24,11 @@ const About = () => {
           fontSize: "2.5rem",
           marginBottom: "2rem",
           textAlign: "center",
-          color: darkTheme.primaryText,
+          background: "linear-gradient(135deg, #fff 0%, #2ed1b2 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          color: "transparent",
           "@media (maxWidth: 768px)": {
             fontSize: "2rem",
             marginBottom: "1.5rem"

@@ -112,10 +112,14 @@ const ServicesPage = () => {
         <h1
           style={{
             paddingTop: "4.1rem",
-            color: darkTheme.primaryText,
             textAlign: "center",
             marginBottom: "3rem",
             fontSize: "2.5rem",
+            background: "linear-gradient(135deg, #fff 0%, #2ed1b2 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            color: "transparent",
           }}
         >
           Nuestros Servicios

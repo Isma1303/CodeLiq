@@ -114,11 +114,17 @@ const SaaSSolutionsPage = () => {
       >
         <h1
           style={{
-            paddingTop: "4.1rem",
+            paddingTop: "2rem",
             color: darkTheme.primaryText,
             textAlign: "center",
-            marginBottom: "3rem",
+            marginBottom: "1rem",
             fontSize: "2.5rem",
+            background: "linear-gradient(135deg, #fff 0%, #2ed1b2 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            "@media screen and (maxWidth: 768px)": {
+              fontSize: "2rem",
+            },
           }}
         >
           Soluciones SaaS

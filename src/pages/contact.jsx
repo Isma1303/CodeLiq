@@ -138,9 +138,13 @@ const ContactForm = () => {
         <h2
           style={{
             marginBottom: "2.5rem",
-            color: darkTheme.primaryText,
             fontSize: "2rem",
             textAlign: "center",
+            background: "linear-gradient(135deg, #fff 0%, #2ed1b2 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            color: "transparent",
             "@media screen and (maxWidth: 768px)": {
               fontSize: "1.5rem",
               marginBottom: "2rem",
