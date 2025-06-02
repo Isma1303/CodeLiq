@@ -87,6 +87,7 @@ const ContactForm = () => {
     "@media screen and (maxWidth: 768px)": {
       padding: "0.6rem",
       fontSize: "0.95rem",
+      marginBottom: "0.8rem",
     },
   };
 
@@ -150,7 +151,15 @@ const ContactForm = () => {
         </h2>
 
         <div style={{ marginBottom: "2rem" }}>
-          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <div
+            style={{
+              display: "block",
+              marginBottom: "1rem",
+              "@media screen and (maxWidth: 768px)": {
+                marginBottom: "0",
+              },
+            }}
+          >
             <input
               type="text"
               name="name"
@@ -158,7 +167,15 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
             <input
               type="text"
@@ -167,10 +184,26 @@ const ContactForm = () => {
               value={formData.lastName}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
           </div>
-          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <div
+            style={{
+              display: "block",
+              marginBottom: "1rem",
+              "@media screen and (maxWidth: 768px)": {
+                marginBottom: "0",
+              },
+            }}
+          >
             <input
               type="tel"
               name="phone"
@@ -178,7 +211,15 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
             <input
               type="email"
@@ -187,10 +228,26 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
           </div>
-          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <div
+            style={{
+              display: "block",
+              marginBottom: "1rem",
+              "@media screen and (maxWidth: 768px)": {
+                marginBottom: "0",
+              },
+            }}
+          >
             <input
               type="text"
               name="company"
@@ -198,7 +255,15 @@ const ContactForm = () => {
               value={formData.company}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
             <input
               type="text"
@@ -207,7 +272,15 @@ const ContactForm = () => {
               value={formData.position}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, flex: 1 }}
+              style={{
+                ...inputStyle,
+                flex: 1,
+                "@media screen and (maxWidth: 768px)": {
+                  width: "100%",
+                  flex: "none",
+                  marginBottom: "0.8rem",
+                },
+              }}
             />
           </div>
           <div style={{ position: "relative" }}>
