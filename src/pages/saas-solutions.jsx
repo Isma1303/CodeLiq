@@ -26,7 +26,7 @@ const SaaSSolutionsPage = () => {
       image: "https://img.icons8.com/color/96/000000/overtime.png",
     },
     {
-      title: "CRM Clientes Frecuentes",
+      title: "Sistema de Gestión Clientes Frecuentes",
       description:
         "Mantén una relación cercana con tus clientes más valiosos. Gestiona perfiles, preferencias y programas de fidelización.",
       features: [
@@ -47,55 +47,55 @@ const SaaSSolutionsPage = () => {
       ],
       image: "https://img.icons8.com/color/96/000000/survey.png",
     },
-    {
-      title: "Gestión de Ventas de Negocios",
-      description:
-        "Potencia tus ventas con nuestra solución integral que te permite controlar todo el ciclo de ventas desde un solo lugar.",
-      features: [
-        "Dashboard de ventas",
-        "Seguimiento de metas",
-        "Reportes avanzados",
-      ],
-      image: "https://img.icons8.com/color/96/000000/sales-performance.png",
-    },
-    {
-      title: "CRM Empresarial",
-      description:
-        "Sistema de gestión de relaciones con clientes totalmente personalizable.",
-      features: [
-        "Gestión de contactos",
-        "Seguimiento de ventas",
-        "Automatización de marketing",
-      ],
-      image: "https://img.icons8.com/fluency/96/business-network.png",
-    },
+    // {
+    //   title: "Gestión de Ventas de Negocios",
+    //   description:
+    //     "Potencia tus ventas con nuestra solución integral que te permite controlar todo el ciclo de ventas desde un solo lugar.",
+    //   features: [
+    //     "Dashboard de ventas",
+    //     "Seguimiento de metas",
+    //     "Reportes avanzados",
+    //   ],
+    //   image: "https://img.icons8.com/color/96/000000/sales-performance.png",
+    // },
+    // {
+    //   title: "CRM Empresarial",
+    //   description:
+    //     "Sistema de gestión de relaciones con clientes totalmente personalizable.",
+    //   features: [
+    //     "Gestión de contactos",
+    //     "Seguimiento de ventas",
+    //     "Automatización de marketing",
+    //   ],
+    //   image: "https://img.icons8.com/fluency/96/business-network.png",
+    // },
     {
       title: "Sistema de Gestión de Inventario",
       description: "Control total sobre tu inventario en tiempo real.",
       features: [
         "Control de stock",
-        "Alertas automáticas",
+        "Control total de productos",
         "Reportes detallados",
       ],
       image: "https://img.icons8.com/fluency/96/warehouse.png",
     },
-    {
-      title: "Plataforma de E-learning",
-      description:
-        "Sistema completo para gestión de cursos y estudiantes online.",
-      features: ["Aulas virtuales", "Sistema de evaluación", "Certificaciones"],
-      image: "https://img.icons8.com/color/96/000000/e-learning.png",
-    },
-    {
-      title: "Sistema de Facturación",
-      description: "Gestiona tus facturas y pagos de forma eficiente.",
-      features: [
-        "Facturación electrónica",
-        "Control de pagos",
-        "Reportes financieros",
-      ],
-      image: "https://img.icons8.com/color/96/000000/invoice.png",
-    },
+    // {
+    //   title: "Plataforma de E-learning",
+    //   description:
+    //     "Sistema completo para gestión de cursos y estudiantes online.",
+    //   features: ["Aulas virtuales", "Sistema de evaluación", "Certificaciones"],
+    //   image: "https://img.icons8.com/color/96/000000/e-learning.png",
+    // },
+    // {
+    //   title: "Sistema de Facturación",
+    //   description: "Gestiona tus facturas y pagos de forma eficiente.",
+    //   features: [
+    //     "Facturación electrónica",
+    //     "Control de pagos",
+    //     "Reportes financieros",
+    //   ],
+    //   image: "https://img.icons8.com/color/96/000000/invoice.png",
+    // },
   ];
 
   return (
